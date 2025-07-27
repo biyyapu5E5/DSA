@@ -7,6 +7,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.length = 0
         
     def append(self, data):
         new_data = Node(data)
@@ -17,22 +18,34 @@ class LinkedList:
             while current.next:
                 current = current.next
             current.next = new_data
+        self.length += 1
     
     def appendIndex(self, index, data):
+        if index < 0 or index >= self.length:
+            print(f'Enter a b/w number>=0 and number<={self.length - 1}')
+            return
+           
         current = self.head
         new_data = Node(data)
-        count = 1 
-        while count <= index:
-            if count == index:
-                new_data.next = current.next
-                current.next = new_data
-            count+=1 
-            current = current.next
+        
+        if index == 0:
+            new_data.next = self.head
+            self.head = new_data
+
+        else:
+            count = 0
+            while count < index:
+                current = current.next
+                count+=1
+            new_data.next = current.next
+            current.next = new_data
+        self.length+= 1
+        self.displayList()
             
-    def print(self):
+    def displayList(self):
         current = self.head 
         while current:
-            print(current.data, end = ' --> ')
+            print(current.data, end= ' --> ')
             current = current.next 
         print('null')
         
@@ -41,9 +54,9 @@ ll.append(10)
 ll.append(20)
 ll.append(30)
 ll.append(40)
-ll.print()
-ll.appendIndex(2, 50)
-ll.print()
-ll.appendIndex(5, 90)
-ll.print()
-        
+print('List of Items: ')
+ll.displayList()
+ll.appendIndex(2, 67)
+ll.appendIndex(9, 18)
+ll.appendIndex(4, 28)
+ll.appendIndex(0, 18)
