@@ -1,34 +1,33 @@
-#created a Linked list insert from end
+# Created Linked List insertion from end
 class Node:
     def __init__(self, data):
         self.data = data
-        self.next = None
-        
+        self.next = None 
+    
 class LinkedList:
     def __init__(self):
         self.head = None 
     
-    def appendStart(self, data):
-        new_node = Node(data)
-        
+    def append(self, data):
+        new_data = Node(data)
         if self.head is None:
-            self.head = new_node
+            self.head = new_data
         else:
-            current = self.head 
-            new_node.next = current
-            self.head = new_node
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_data
     
     def print(self):
         current = self.head
         while current:
             print(current.data, end = ' --> ')
-            current = current.next 
+            current = current.next
         print('null')
         
 ll = LinkedList()
-ll.appendStart(10)
-ll.appendStart(20)
-ll.appendStart(30)
-ll.appendStart(40)
-ll.appendStart(50)
+ll.append(10)
+ll.append(20)
+ll.append(30)
+ll.append(40)
 ll.print()
