@@ -24,9 +24,8 @@ class LinkedList:
         count = 1 
         while count <= index:
             if count == index:
-                temp = current.next 
+                new_data.next = current.next
                 current.next = new_data
-                new_data.next = temp
             count+=1 
             current = current.next
             
