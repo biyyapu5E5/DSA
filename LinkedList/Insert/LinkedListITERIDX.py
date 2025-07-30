@@ -60,3 +60,15 @@ ll.append(30)
 ll.append(40)
 ll.displayList()
 ll.iterateListItems([(100,1), (200,1), (-300,5), (91,0), (45, 8)])
+
+# Output
+# 10 --> 20 --> 30 --> 40 --> null
+# Inserted 100 at Index no 1:
+# 10 --> 20 --> 100 --> 30 --> 40 --> null
+# Inserted 200 at Index no 1:
+# 10 --> 20 --> 200 --> 100 --> 30 --> 40 --> null
+# Inserted -300 at Index no 5:
+# 10 --> 20 --> 200 --> 100 --> 30 --> 40 --> -300 --> null
+# Inserted 91 at Index no 0:
+# 91 --> 10 --> 20 --> 200 --> 100 --> 30 --> 40 --> -300 --> null
+# Please enter a number>=0 and number<=8
